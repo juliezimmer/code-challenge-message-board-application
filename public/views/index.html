@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board App</title>
+    <script type="text/javascript" src="/vendors/angular.js"></script>
+    
+</head>
+<body ng-app="messagingApp">
+    <h1>Message Board Application</h1>
+    <div class="container" ng-controller="MessageAppController as vm">
+        <div class="inputArea">  
+            <h1>Enter your name and message here</h2>
+            <label>Name</label>
+            <input type="text" ng-model="vm.newMessage.name">
+            <label>Message</label>
+            <input type="text"  ng-model="vm.newMessage.message">
+            <button type="button" ng-click="vm.submitMessage()">Submit</button>  
+        </div>
+
+        <div class="displayArea">
+            <div ng-repeat="message in vm.messages">
+                <p>{{message.message}}</p>
+                <p>{{message.name}}</p>
+            </div>
+        </div>
+    </div>    
+</body>     
+</html>
